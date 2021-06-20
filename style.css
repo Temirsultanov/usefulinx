@@ -53,11 +53,11 @@ input {
     font-weight: 900;
     width: 100%;
     text-align: center;
-    font-size: 54px;
+    font-size: 59px;
     margin-bottom: 20px;
     display: flex;
 }
-.landing_logo__userfu {
+.landing_logo__usefu {
     clip-path: polygon(0px 0px, 100% 0px, 87% 100%, 0px 100%);
     position: relative;
     left: 0;
@@ -72,17 +72,17 @@ input {
     padding-left: 30px;
     margin-left: -30px;
 }
-.landing_logo__userfu .landing_logo__inner {
+.landing_logo__usefu .landing_logo__inner {
     display: block;
     transform: translateX(150%);
-    animation: landing_userfu 0.5s 0.5s forwards;
+    animation: landing_usefu 0.5s 0.5s forwards;
 }
 .landing_logo__inx .landing_logo__inner {
     display: block;
     transform: translateX(-150%);
-    animation: landing_userfu 0.5s 0.5s forwards;
+    animation: landing_usefu 0.5s 0.5s forwards;
 }
-@keyframes landing_userfu {
+@keyframes landing_usefu {
     100% {
         transform: translateX(0);
     }
