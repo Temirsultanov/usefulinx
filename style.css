@@ -118,6 +118,7 @@ body, h1,h2,h3,h4,h5,h6,ul {
 }
 .landing_button__login {
     background-image: linear-gradient(90deg, var(--blue), var(--green), var(--blue));
+    margin-top: 0;
 }
 @keyframes button_background {
     0% {
