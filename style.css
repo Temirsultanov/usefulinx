@@ -82,24 +82,25 @@ body, h1,h2,h3,h4,h5,h6,ul {
     position: relative;
 }
 .landing_line__first {
-    left: 135px;
+    left: 136px;
 }
 .landing_line__second {
-    left: 29px;
+    left: 9px;
 }
 .landing_line__third {
-    left: 60px;
+    left: 15px;
 }
 .landing_line__fourth {
-    left: 163px;
+    left: 161px;
 }
 .landing_line__fifth {
-    left: 158px;
+    left: 167px;
 }
 
 /* Buttons */
 .landing_button {
     border-radius: var(--borderRadius);
+    -webkit-appearance: none;
     color: var(--white);
     padding: 16px 30px;
     border: 0px;
