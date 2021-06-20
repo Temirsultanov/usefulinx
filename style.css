@@ -54,7 +54,8 @@ input {
     width: 100%;
     text-align: center;
     font-size: 59px;
-    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
     display: flex;
 }
 .landing_logo__usefu {
@@ -108,6 +109,9 @@ input {
 }
 .landing_title__green {
     color: var(--green);
+}
+.landing_title__save {
+    margin-top: 0;
 }
 .landing_title__group {
     align-self: flex-end;
