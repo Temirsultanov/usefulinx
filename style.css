@@ -1,0 +1,131 @@
+*, body {
+    box-sizing: border-box;
+    font-family: 'Rubik';
+}
+body {
+    --red: #C00781;
+    --darkblue: #12297B;
+    --blue: #284CCB;
+    --darkgreen: #1EAB81;
+    --green: #00B57E;
+    --borderRadius: 10px;
+    --white: #fff;
+    font-family: 'Rubik';
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(21, 20, 32); */
+}
+body, h1,h2,h3,h4,h5,h6,ul {
+    margin: 0;
+    padding: 0;
+}
+.red {
+    color: var(--red)
+}
+.green {
+    color: var(--green);
+}
+
+
+#app {
+    width: 375px;
+    box-shadow: 0 0 20px 0px rgb(230, 230, 240);
+    max-width: 375px;
+    height: 100%;
+    background: var(--white);
+}
+
+
+/* Landing */
+.landing {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    color: var(--green);
+    font-weight: 900;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.landing_title {
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--darkblue)
+}
+.landing_title__big {
+    font-size: 19px;
+    display: block;
+}
+.landing_title__red {
+    color: var(--red);
+}
+.landing_title__green {
+    color: var(--green);
+}
+.landing_title__group {
+    align-self: flex-end;
+    text-align: right;
+}
+.landing_title__login {
+    align-self: center;
+    text-align: center;
+}
+
+/* Lines */
+.landing_line {
+    position: relative;
+}
+.landing_line__first {
+    left: 135px;
+}
+.landing_line__second {
+    left: 29px;
+}
+.landing_line__third {
+    left: 60px;
+}
+.landing_line__fourth {
+    left: 163px;
+}
+.landing_line__fifth {
+    left: 158px;
+}
+
+/* Buttons */
+.landing_button {
+    border-radius: var(--borderRadius);
+    color: var(--white);
+    padding: 16px 30px;
+    border: 0px;
+    font-weight: 700;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-size: 1000px;
+    background-position: 0px 0px;
+    animation: button_background 3s linear infinite forwards;
+    cursor: pointer;
+}
+.landing_button__signup {
+    background-image: linear-gradient(90deg, var(--red), var(--blue), var(--red));
+}
+.landing_button__login {
+    background-image: linear-gradient(90deg, var(--blue), var(--green), var(--blue));
+}
+@keyframes button_background {
+    0% {
+        background-position: 0px 0px;
+    }
+    100% {
+        background-position: 1000px 0px;
+    }
+}
+.landing_button:hover {
+    animation-duration: 0.5s;
+}
