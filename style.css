@@ -12,9 +12,13 @@ body {
     --white: #fff;
     font-family: 'Rubik';
     height: 100%;
+    max-width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    overflow-x: hidden;
     background-color: rgb(36, 35, 51);
 }
 body, h1,h2,h3,h4,h5,h6,ul {
@@ -35,141 +39,75 @@ input {
 
 #app {
     width: 375px;
-    box-shadow: 0 0 20px 0px rgb(0, 0, 0);
+    height: 100vh;
     max-width: 375px;
-    height: 100%;
     background: var(--white);
 }
-
-
-/* Landing */
-.landing {
-    padding: 20px;
-    padding-top: 10px;
+.signup {
+    position: relative;
+    padding-top: 15px;  
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.signup_back {
+    position: absolute;
+    left: 20px;
+    top: 30px;
+    
+    border: 0;
     display: flex;
-    flex-direction: column;
-}
-.landing_logo {
-    color: var(--green);
-    font-weight: 900;
-    width: 100%;
-    text-align: center;
-    font-size: 59px;
-    margin-top: 0;
-    margin-bottom: 10px;
-    display: flex;
-}
-.landing_logo__usefu {
-    clip-path: polygon(0px 0px, 100% 0px, 87% 100%, 0px 100%);
-    position: relative;
-    left: 0;
-    z-index: 1;
-    padding-right: 30px;
-    margin-right: -30px;
-}
-.landing_logo__inx {
-    clip-path: polygon(22% 0px, 100% 0px, 100% 100%, 0px 100%);
-    position: relative;
-    z-index: 1;
-    padding-left: 30px;
-    margin-left: -30px;
-}
-.landing_logo__usefu .landing_logo__inner {
-    display: block;
-    transform: translateX(150%);
-    animation: landing_usefu 0.5s 0.5s forwards;
-}
-.landing_logo__inx .landing_logo__inner {
-    display: block;
-    transform: translateX(-150%);
-    animation: landing_usefu 0.5s 0.5s forwards;
-}
-@keyframes landing_usefu {
-    100% {
-        transform: translateX(0);
-    }
-}
-.landing_logo__slashes {
-    position: relative;
-    z-index: 2;
-}
-.landing_title {
-    font-weight: 900;
+    align-items: center;
+
     font-size: 14px;
-    line-height: 1.4;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: var(--darkblue)
+    background-color: transparent;
+    cursor: pointer;
 }
-.landing_title__big {
-    font-size: 19px;
-    display: block;
-}
-.landing_title__red {
+.signup_back:hover {
     color: var(--red);
 }
-.landing_title__green {
-    color: var(--green);
+
+.signup_back__icon {
+    margin-right: 10px;
 }
-.landing_title__save {
-    margin-top: 0;
+.signup_back:hover .signup_back__icon path {
+    stroke: var(--red);
 }
-.landing_title__group {
-    align-self: flex-end;
-    text-align: right;
-}
-.landing_title__login {
-    align-self: center;
+
+.signup_logo {
+    font-weight: 900;
+    font-size: 40px;
     text-align: center;
+
+    color:var(--green);
 }
 
-/* Lines */
-.landing_line {
-    position: relative;
+.signup_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
 }
-.landing_line__first {
-    left: 136px;
+.signup_form__username, .signup_form__password {
+    padding-left: 20px;
+    outline: 0;
+    padding-right: 20px;
 }
-.landing_line__second {
-    left: 9px;
+.signup_form__username:focus, .signup_form__password:focus {
+    border-color: var(--blue);
 }
-.landing_line__third {
-    left: 15px;
-}
-.landing_line__fourth {
-    left: 161px;
-}
-.landing_line__fifth {
-    left: 167px;
-}
-
-/* Buttons */
-.landing_button {
-    border-radius: var(--borderRadius);
-    -webkit-appearance: none;
+.signup_form__button {
+    height: 50px;  
     color: var(--white);
-    padding: 16px 30px;
-    border: 0px;
-    font-size: 14px;
+    border: 0;
     font-weight: 700;
-    align-self: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-image: linear-gradient(90deg, var(--red), var(--blue), var(--red)); 
+    border-radius: var(--borderRadius);
     background-size: 1000px;
     background-position: 0px 0px;
-    animation: button_background 3s linear infinite forwards, landing_subtitle 0.3s forwards;;
+    animation: signup_form__button 5s linear infinite forwards;
     cursor: pointer;
-    opacity: 0;
-    transform: scale(0.8);
 }
-.landing_button__signup {
-    background-image: linear-gradient(90deg, var(--red), var(--blue), var(--red));
-}
-.landing_button__login {
-    background-image: linear-gradient(90deg, var(--blue), var(--green), var(--blue));
-    margin-top: 0;
-}
-@keyframes button_background {
+@keyframes signup_form__button {
     0% {
         background-position: 0px 0px;
     }
@@ -177,87 +115,40 @@ input {
         background-position: 1000px 0px;
     }
 }
-.landing_button:hover {
-    animation-duration: 0.5s;
+.signup_form__button:hover {
+    animation-duration: 1s;
 }
-.landing_title__save, .landing_title__group, .landing_title__signup, .landing_title__login{
-    animation: landing_subtitle 0.3s forwards;
-    opacity: 0;
-    transform: scale(0.8);
+.signup_select {
+    width: 100%;
+    margin-top: 150px;
+    display: flex;
+    list-style: none;
 }
-.landing_title__save {
-    animation-delay: 1.2s;
+.signup_select li {
+    width: 50%;
 }
-.landing_title__group {
-    animation-delay: 1.6s;
+.signup_select__signup, .signup_select__login {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    background-color: #fff;
+    cursor: pointer;
+    color: var(--darkblue);
 }
-.landing_title__signup {
-    animation-delay: 2.4s;
-}
-.landing_button__signup {
-    animation-delay: 3.1s;
-}
-.landing_title__login {
-    animation-delay: 3.5s;
-}
-.landing_button__login {
-    animation-delay: 3.7s;
-}
-@keyframes landing_subtitle{
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
+.signup_select__line {
+    width: 50%;
+    margin: 0;
+    height: 1px;
+    
+    align-self: flex-start;
 
-
-
-
-
-.landing_line__first {
-    stroke-dasharray: 200px;
-    stroke-dashoffset: 200px;
-    animation: landing_line__first 1s 1.4s forwards;
+    background-color: var(--red);
+    border: 0px;
+    transition: 0.3s ease;
 }
-@keyframes landing_line__first {
-    100% {
-        stroke-dashoffset: 0;
-    }
+.signup_select__line-login {
+    transform: translateX(100%);
 }
-
-.landing_line__second {
-    stroke-dasharray: 310px;
-    stroke-dashoffset: 310px;
-    animation: landing_line__first 1s 1.8s forwards;
-}
-@keyframes landing_line__second {
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-
-.landing_line__third {
-    stroke-dasharray: 170px;
-    stroke-dashoffset: 170px;
-    animation: landing_line__third 1s 2.5s forwards;
-}
-@keyframes landing_line__third {
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-
-.landing_line__fourth {
-    stroke-dasharray: 100px;
-    stroke-dashoffset: 100px;
-    animation: landing_line__fourth 0.8s 3.2s forwards;
-}
-@keyframes landing_line__fourth {
-    100% {
-        stroke-dashoffset: 0;
-    }
+.signup_form__button-login {
+    background-image: linear-gradient(90deg, var(--blue), var(--green), var(--blue));
 }

@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landing.css">
     <style>
         [v-cloak] {
             display: none;
@@ -57,11 +58,38 @@
             </svg>                     -->
             <button 
                 class="landing_button landing_button__login"
+                @click="onLandingLoginButtonClick"
             >Войти</button>
         </section>
         <section class="signup" v-if="page === 'signup'">
-            <h1>Hello everybody</h1>
-            <button @click="page = 'landing'">Назад</button>
+            <button class="signup_back" @click="page = 'landing'">
+                <svg class="signup_back__icon" width="7" height="16" viewBox="0 0 7 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 1L1 8L6 15" stroke="#273352" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>    
+                Назад
+            </button>
+            <h1 class="signup_logo">//</h1>
+            <ul class="signup_select">
+                <li><button @click="isSignup = false" class="signup_select__signup ">Зарегистрироваться</button></li>
+                <li><button @click="isSignup = true" class="signup_select__login">Войти</button></li>
+            </ul>
+            <hr :class="['signup_select__line', {
+                'signup_select__line-login' : isSignup
+            }]">
+            <form method="POST" class="signup_form">
+                <input placeholder="Юзернейм" type="text" name="username" class="signup_form__username">
+                <input placeholder="Пароль" type="password" name="password" class="signup_form__password">
+                <button
+                    v-if="!isSignup"
+                    class="signup_form__button"
+                    @click.prevent="page = 'landing'"
+                >Зарегистрироваться</button>
+                <button 
+                    v-if="isSignup"
+                    class="signup_form__button signup_form__button-login"
+                    @click.prevent="page = 'landing'"
+                >Войти</button>
+            </form>
         </section>
     </section>
     <script src="https://unpkg.com/vue@next"></script>
